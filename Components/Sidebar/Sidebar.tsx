@@ -3,10 +3,18 @@ import Image from 'next/image';
 import {AiFillGithub,AiFillYoutube,AiFillLinkedin }from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
 import {GiTie} from 'react-icons/gi'
+import { useTheme } from 'next-themes';
 
 const Sidebar = () => {
+  
+  const {theme, setTheme}= useTheme()
+
+  const changeTheme =()=>{
+    setTheme(theme==='light'?'dark':'light')
+  }
+
     return (
-        <div className='text-center'> 
+        <div className='text-center '> 
             
             <Image
               src="https://media.istockphoto.com/photos/businessman-smiling-with-arms-crossed-on-white-background-picture-id1364917543?k=20&m=1364917543&s=612x612&w=0&h=wQJmcJxdaCWsIG6XC_bVLJtZL1T4Ja9gOJBqnI6FXn4="
@@ -17,13 +25,13 @@ const Sidebar = () => {
             />
           <h3 className='my-4  text-3xl font-medium font-Kaushan tracking-wider'><span className='text-green-500'>Yousuf</span>  Hossein</h3>
           <p
-           className=' bg-gray-200 rounded-full my-3 py-1 '>
+           className=' bg-gray-200 dark:bg-gray-800 rounded-full my-3 py-1 '>
             Wed devoleper
             </p>
           <a 
-          className=' bg-gray-200 rounded-full my-3 py-1 flex justify-center items-center'
-            href=''
-            download='name'
+          className=' bg-gray-200 dark:bg-gray-800 rounded-full my-3 py-1 flex justify-center items-center'
+            href='images/blink.jpg'
+            download='blink.jpg'
           ><GiTie className='w-5 h-5'/>Download Resume</a>
           {/* social icon */}
     <div className="flex justify-around w-9/12 md:w-full text-green-500 mx-auto">
@@ -35,7 +43,7 @@ const Sidebar = () => {
          
 
           {/* address */}
-          <div className="bg-gray-200 py-3 my-3" style={{marginRight:'-16px', marginLeft:'-16px'}}>
+          <div className="bg-gray-200 dark:bg-gray-800 py-3 my-3" style={{marginRight:'-16px', marginLeft:'-16px'}}>
             <div className="flex justify-center items-center gap-2">
                 <GoLocation/>
                 <span>Dhaka Bangladesh</span>
@@ -44,7 +52,9 @@ const Sidebar = () => {
             <p>01889571217</p>
           </div>
           <button className='bg-gradient-to-r from-green-400 to-blue-400 w-8/12 my-2 py-2 rounded-full text-white' onClick={()=>window.open('mailto:Yousuf81@gmail.com')}>Email me</button>
-          <button className='bg-gradient-to-r from-green-400 to-blue-400 w-8/12 my-2 py-2 rounded-full text-white'>Toggle Theme</button>
+          <button
+          onClick={changeTheme}
+           className='bg-gradient-to-r from-green-400 to-blue-400 w-8/12 my-2 py-2 rounded-full text-white'>Toggle Theme</button>
         </div>
        
     );
