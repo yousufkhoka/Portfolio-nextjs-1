@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
 import { Category } from "../../type";
 
-
-
-export const NavItem:FunctionComponent<{
+type NavItem = {
     value: Category | 'all'
     hendleSetProject:Function
     active:string
-}> = ({value,hendleSetProject,active})=>{
+}
+
+export const NavItem = ({value,hendleSetProject,active}:NavItem)=>{
      let LiStyle = 'list-none capitalize hover:text-green-400 cursor-pointer '
      if(active === value){
         LiStyle += 'text-green-400'

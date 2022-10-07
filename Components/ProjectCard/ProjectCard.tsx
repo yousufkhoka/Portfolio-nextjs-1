@@ -7,16 +7,16 @@ import { IProject } from '../../type';
 import {  motion}from 'framer-motion'
 
 
-
-
-
-const ProjectCard:FunctionComponent<{
+type projectCardProps = {
     project:IProject
     showDetail:number | null
     setShowDetail:(id:number | null) => void
-}> = ({project:{
+}
+
+
+const ProjectCard = ({project:{
     name,github_url,deployed_url,key_techs,image_path,category,id,description
-}, showDetail,setShowDetail}) => {
+}, showDetail,setShowDetail}:projectCardProps) => {
     
 
        
